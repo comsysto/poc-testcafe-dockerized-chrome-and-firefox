@@ -1,0 +1,41 @@
+#
+# We use --abort-on-container-exit and not -d to run the whole 'docker compose up' let the e2e test
+# run dockerized and then all containers will be shutdown due to --abort-on-container-exit since
+# the e2e container will auto-shutdown and drag all others with him.
+#
+version: '3.2'
+services:
+  app:
+    build: app/
+    container_name: app
+    environment:
+      - NODE_ENV=development
+      - BASE_URL=http://app.e2e.local:4000
+    networks:
+      app-e2e-env-network:
+        aliases:
+          - app.e2e.local
+  e2e:
+    build: e2e/
+    shm_size: '3gb'
+    container_name: e2e
+    links:
+      - app
+    environment:
+      - BASE_URL=http://app.e2e.local:4000
+      - USE_BROWSER="${USE_BROWSER}"
+    depends_on:
+      - app
+    #### optional: access to screenshots
+    #    volumes:
+    #      - type: bind
+    #        source: './screenshots'
+    #        target: '/app/screenshots'
+    networks:
+      app-e2e-env-network:
+        aliases:
+          - e2e.e2e.local
+
+networks:
+  app-e2e-env-network:
+    driver: bridge

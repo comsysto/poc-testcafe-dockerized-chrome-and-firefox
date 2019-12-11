@@ -1,0 +1,23 @@
+.idea/
+.vscode/
+.gradle
+node_modules/
+build/
+tmp/
+temp/
+dist
+dist-web
+.next
+.env
+
+# misc
+.DS_Store
+
+# Intellij files
+./idea
+personae.iml
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+

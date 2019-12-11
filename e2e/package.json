@@ -7,7 +7,7 @@
     "test": "./node_modules/.bin/testcafe 'chrome --no-sandbox' ./tests/*.test.ts ./tests/*/*/*/*.test.ts  -S -s screenshots --reporter spec --assertion-timeout 40000 --selector-timeout 500000 --page-load-timeout 9000",
     "test:firefox": "./node_modules/.bin/testcafe 'firefox' ./tests/*.test.ts ./tests/*/*/*/*.test.ts  -S -s screenshots --reporter spec --assertion-timeout 40000 --selector-timeout 500000 --page-load-timeout 9000",
     "test:ci:chrome": "./node_modules/.bin/testcafe 'chrome --no-sandbox --headless' ./tests/*.test.ts ./tests/*/*/*/*.test.ts --dev -S -s screenshots --reporter spec  --assertion-timeout 40000 --selector-timeout 500000 --page-load-timeout 900",
-    "test:ci:firefox": "./node_modules/.bin/testcafe 'firefox -headless --no-remote' ./tests/*.test.ts ./tests/*/*/*/*.test.ts --dev -S -s screenshots --reporter spec  --assertion-timeout 40000 --selector-timeout 500000 --page-load-timeout 900"
+    "test:ci:firefox": "./node_modules/.bin/testcafe 'firefox -headless --no-remote' ./tests/*.test.ts"
   },
   "devDependencies": {
     "testcafe": "1.7.0"

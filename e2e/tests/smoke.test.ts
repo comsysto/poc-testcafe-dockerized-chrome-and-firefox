@@ -1,6 +1,7 @@
 import { Selector } from 'testcafe'
 
-const baseUrl = <string>process.env.BASE_URL
+// Test if it is some docker-dns failing thingy
+const baseUrl = 'https://comsysto.github.io/poc-testcafe-dockerized-chrome-and-firefox/' // <string>process.env.BASE_URL
 
 console.log('BASEURL: ', baseUrl)
 
